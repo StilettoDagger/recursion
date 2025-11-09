@@ -17,6 +17,6 @@ function fibsRec(n, fibsCache = [0, 1]) {
     return fibsCache[n];
 }
 
-console.log(fibs(8));
+console.log("This was printed iteratively. The first 8 numbers of the fibonacci sequence:", fibs(8));
 
-console.log(fibsRec(77));
+console.log("This was printed recursively. The 77th fibonacci number is:", fibsRec(77));
