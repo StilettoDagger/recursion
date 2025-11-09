@@ -9,14 +9,22 @@ function fibs(n) {
     return fibNums;
 }
 
-function fibsRec(n, fibsCache = [0, 1]) {
-    if (fibsCache[n] !== undefined) {
-        return fibsCache[n];
+function fibsRec(n) {
+    // console.log("This was printed recursively!");
+    if (n === 1) {
+        return {first: 1, second: 0};
     }
-    fibsCache[n] = fibsRec(n - 1, fibsCache) + fibsRec(n - 2, fibsCache);
-    return fibsCache[n];
+    const prev = fibsRec(n - 1);
+    return {first: prev.first + prev.second, second: prev.first}
 }
 
-console.log("This was printed iteratively. The first 8 numbers of the fibonacci sequence:", fibs(8));
+function runFibsRec(n) {
+    return fibsRec(n).first;
+}
 
-console.log("This was printed recursively. The 77th fibonacci number is:", fibsRec(77));
+console.log("The first 8 numbers of the fibonacci sequence:", fibs(8));
+
+console.log("The 77th fibonacci number is:", runFibsRec(77));
+
+console.log(runFibsRec(8));
+console.log(runFibsRec(4));
